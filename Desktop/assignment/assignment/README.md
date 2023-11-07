@@ -27,5 +27,43 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 
-## Installed bootstrap
+
+## Getting Started
+
+Follow these steps to set up and run the project:
+
+# Install bootstrap
 npm install bootstrap
+
+# Employee Data Form
+
+This Angular application allows you to submit an employee data form with various input fields. It uses Angular Reactive Forms to manage the form and includes validation for required fields.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) installed
+- Angular CLI (`npm install -g @angular/cli`)
+
+### Installation
+
+1. **Clone this repository to your local machine:**
+
+   ```bash
+   git clone https://github.com/Vidya022/Assignment/tree/testing
+
+2. cd assignment
+
+3. npm install
+
+4. ng serve
+
+**Additional Dependencies**
+
+    The project uses the following additional dependencies:
+
+    @angular/forms for handling form logic and validation.
+
+    import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+    import { FormsModule } from '@angular/forms'; // Import FormsModule
+    import { ReactiveFormsModule } from '@angular/forms';
+
