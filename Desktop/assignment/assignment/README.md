@@ -49,7 +49,7 @@ This Angular application allows you to submit an employee data form with various
 1. **Clone this repository to your local machine:**
 
    ```bash
-   git clone https://github.com/Vidya022/Assignment/tree/testing
+   git clone https://github.com/Vidya022/Assignment/tree/testing/Desktop/assignment/assignment
 
 2. cd assignment
 
