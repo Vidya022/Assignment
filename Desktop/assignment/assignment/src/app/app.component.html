@@ -1,0 +1,70 @@
+<div class="topnav">
+  <img class="print-image" src="assets/images/company-logo.webp" />
+  <div class="topnav-right">
+    <button class="button" href="" style="margin-top: 8px;">Log Out</button>
+  </div>
+</div>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div *ngFor="let data of myformData" class="form-section">
+    <h1 class="form-title">{{data.title}}</h1>
+    <div *ngFor="let innerdata of data.formFields" class="field-section">
+      <h4 class="field-label">{{innerdata.label}}</h4>
+      <div *ngFor="let question of innerdata.fields let i=index" class="form-field">
+        <div *ngIf="question.type === 'text'" class="text-field">
+          <p  style="margin-left: 5px;font-size: 18px;">{{i+1}} {{question.label}}</p>
+          <input class="form-control" type="text" [formControlName]="question.name" placeholder="{{question.placeholder}}"/>
+          <div  style="color: red;margin-left: 8px;" *ngIf="myForm.get(question.name)?.touched && myForm.get(question.name)?.hasError('required')">
+            {{ question.label }} is required.
+          </div>
+        </div>
+        <div *ngIf="question.type === 'date'" class="date-field">
+          <p  style="margin-left: 5px;font-size: 18px;">{{i+1}} {{question.label}}</p>
+          <input type="date" [formControlName]="question.name"/>
+          <div  style="color: red;margin-left: 8px;" *ngIf="myForm.get(question.name)?.touched && myForm.get(question.name)?.hasError('required')">
+            {{ question.label }} is required.
+          </div>
+        </div>
+        <div *ngIf="question.type === 'radio'" class="radio-field">
+          <p  style="margin-left: -3px;font-size: 20px;margin-bottom: 0px;">{{i+1}} {{question.label}}</p>
+          <div class="options-container" *ngFor="let options of question.options">
+            <input style="cursor: pointer;"  [formControlName]="question.name" type="radio" value="{{options.value}}" />
+            <label style="margin-left: -4px;">{{options.label}}</label>
+          </div>
+          <div  style="color: red;margin-left: 8px;" *ngIf="myForm.get(question.name)?.touched && myForm.get(question.name)?.hasError('required')">
+            {{ question.label }} is required.
+          </div>
+        </div>
+        <div *ngIf="question.type === 'checkbox'" class="checkbox-field">
+          <p  style="margin-left: -3px;font-size: 20px;margin-bottom: 0px;">{{i+1}} {{question.label}}</p>
+          <div class="options-container" *ngFor="let options of question.options">
+            <input style="cursor: pointer;"  [formControlName]="question.name" type="checkbox" />
+            <label style="margin-left: -4px;">{{options.label}}</label>
+          </div>
+          <div style="color: red;margin-left: 8px;" *ngIf="myForm.get(question.name)?.touched && myForm.get(question.name)?.hasError('required')">
+            {{ question.label }} is required.
+          </div>
+        </div>
+        <div *ngIf="question.type === 'select'" class="select-field">
+          <p style="margin-left: 5px;font-size: 18px;">{{i+1}} {{question.label}}</p>
+          <div class="options-container">
+            <select #selectElement [formControlName]="question.name">
+              <option  value="" selected hidden>Select Your Answer</option>
+              <option *ngFor="let options of question.options" [value]="options.label">
+                {{options.label}}
+              </option>
+            </select>
+          </div>
+          <div style="color: red;margin-left: 8px;" *ngIf="myForm.get(question.name)?.touched && myForm.get(question.name)?.hasError('required')">
+            {{ question.label }} is required.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-container">
+    <button [disabled]="myForm.invalid" type="submit" class="btn">Submit</button>
+  </div>
+</form>
+
+
