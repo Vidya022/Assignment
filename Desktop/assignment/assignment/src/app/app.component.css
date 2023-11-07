@@ -36,19 +36,21 @@
     margin-top: 10px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    width: 600px;
+    width: 800px;
     margin: auto;
     font-family: Open Sans;
   }
   
   .form-title {
-    font-size: 28px;
+    font-size: 26px;
     margin-bottom: 20px;
     color: white;
     background-color: #0a1f23;
-    height: 100px;
+    height: 80px;
     padding: 5px;
     border-radius: 5px;
+    margin: 0px;
+    text-transform: capitalize;
   }
   
   .field-section {
@@ -131,4 +133,8 @@
   }
   .btn{
     background-color: #007bff;
+  }
+
+  .print-image{
+    height: 50px;
   }
