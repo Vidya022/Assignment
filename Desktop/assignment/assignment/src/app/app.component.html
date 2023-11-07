@@ -10,6 +10,8 @@
     <div *ngFor="let innerdata of data.formFields" class="field-section">
       <h4 class="field-label">{{innerdata.label}}</h4>
       <div *ngFor="let question of innerdata.fields let i=index" class="form-field">
+
+        <!-- displaying the text type questions  -->
         <div *ngIf="question.type === 'text'" class="text-field">
           <p  style="margin-left: 5px;font-size: 18px;">{{i+1}} {{question.label}}</p>
           <input class="form-control" type="text" [formControlName]="question.name" placeholder="{{question.placeholder}}"/>
@@ -17,6 +19,8 @@
             {{ question.label }} is required.
           </div>
         </div>
+
+        <!-- displaying the date type questions  -->
         <div *ngIf="question.type === 'date'" class="date-field">
           <p  style="margin-left: 5px;font-size: 18px;">{{i+1}} {{question.label}}</p>
           <input type="date" [formControlName]="question.name"/>
@@ -24,6 +28,8 @@
             {{ question.label }} is required.
           </div>
         </div>
+
+        <!-- displaying the radio type questions  -->
         <div *ngIf="question.type === 'radio'" class="radio-field">
           <p  style="margin-left: -3px;font-size: 20px;margin-bottom: 0px;">{{i+1}} {{question.label}}</p>
           <div class="options-container" *ngFor="let options of question.options">
@@ -34,6 +40,8 @@
             {{ question.label }} is required.
           </div>
         </div>
+
+        <!-- displaying the checkbox type questions  -->
         <div *ngIf="question.type === 'checkbox'" class="checkbox-field">
           <p  style="margin-left: -3px;font-size: 20px;margin-bottom: 0px;">{{i+1}} {{question.label}}</p>
           <div class="options-container" *ngFor="let options of question.options">
@@ -44,6 +52,8 @@
             {{ question.label }} is required.
           </div>
         </div>
+
+        <!-- displaying the dropdown type questions  -->
         <div *ngIf="question.type === 'select'" class="select-field">
           <p style="margin-left: 5px;font-size: 18px;">{{i+1}} {{question.label}}</p>
           <div class="options-container">
