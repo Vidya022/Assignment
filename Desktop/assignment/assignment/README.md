@@ -1,6 +1,6 @@
 # Assignment
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
 ## Development server
 
@@ -67,3 +67,5 @@ This Angular application allows you to submit an employee data form with various
     import { FormsModule } from '@angular/forms'; // Import FormsModule
     import { ReactiveFormsModule } from '@angular/forms';
 
+**After adding the dependencied Run the server with**
+    ng serve
